@@ -1,0 +1,110 @@
+
+/* ========== BUILDINGS AND TRUST CUSTOM CSS ========== */
+
+/* ---------- 1. GLOBAL & HEADER ---------- */
+.site-header { background-color: #003366; }
+.main-title a, .main-title a:hover { color: #ffffff; }
+
+/* ---------- 2. HERO SECTION ---------- */
+.bat-full-width-hero { position: relative; width: 100vw; left: 50%; right: 50%; margin-left: -50vw; margin-right: -50vw; min-height: 500px; background-image: url('/assets/images/Buildings-and-Trust-Van.webp'); background-size: cover; background-position: center; color: #ffffff; text-align: center; display: flex; align-items: center; justify-content: center; }
+.bat-overlay { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.5); }
+.bat-hero-content { position: relative; max-width: 1000px; padding: 40px; }
+.bat-hero-h1 { font-size: 48px; margin-bottom: 15px; font-weight: 700; }
+.bat-hero-p-22 { font-size: 22px; margin-bottom: 20px; }
+.bat-hero-p-18 { font-size: 18px; margin-bottom: 40px; }
+.bat-btn-blue { padding: 14px 30px; background: #003366; color: #ffffff !important; text-decoration: none; font-weight: bold; border-radius: 6px; display: inline-block; }
+
+/* ---------- 3. TRUST BADGES ---------- */
+.bat-badge-container { background-color: #f8f8f8; padding: 20px; text-align: center; font-family: Arial, sans-serif; border: 1px solid #ddd; border-radius: 5px; }
+.bat-badge-h2 { margin: 0 0 20px; font-size: 24px; color: #222; }
+.bat-badge-flex { display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; }
+.bat-badge { color: #fff; padding: 8px 12px; border-radius: 20px; font-size: 14px; font-weight: bold; }
+
+/* ---------- 4. GALLERY ---------- */
+.wp-block-gallery { display: flex; flex-wrap: wrap; gap: 10px; }
+.gallery-item { text-align: center; flex: 1 1 calc(33.333% - 10px); box-sizing: border-box; }
+.gallery-item h2 { font-size: 18px; margin-bottom: 5px; color: #222; }
+.gallery-item img { width: 100%; height: auto; display: block; }
+.gallery-item figcaption { margin-top: 5px; font-size: 14px; color: #333; }
+
+/* ---------- 5. SERVICE STANDARDS CARDS ---------- */
+.bat-standards { padding: 80px 20px; background-color: #fcfcfc; }
+.bat-standards-h2 { text-align: center; color: #1a1a1a; font-size: 2.25rem; margin-bottom: 50px; font-weight: 800; }
+.bat-cards-wrap { max-width: 1200px; margin: 0 auto; display: flex; flex-wrap: wrap; justify-content: center; gap: 30px; }
+.bat-card { flex: 1; min-width: 300px; max-width: 380px; border-radius: 20px; padding: 50px 35px; text-align: center; color: #FFFFFF; display: flex; flex-direction: column; justify-content: space-between; position: relative; overflow: hidden; }
+.bat-card-circle { position: absolute; top: -20px; right: -20px; width: 100px; height: 100px; background: rgba(255,255,255,0.05); border-radius: 50%; }
+.bat-card-h3 { font-size: 1.8rem; font-weight: 700; }
+.bat-card-p { font-size: 1.15rem; line-height: 1.7; margin-bottom: 35px; }
+.bat-card-btn { padding: 14px 25px; text-decoration: none; border-radius: 10px; font-weight: 700; display: inline-block; width: 100%; box-sizing: border-box; }
+
+/* ---------- 6. FAQ & TESTIMONIALS ---------- */
+.faq-testimonial-container { display: flex; flex-wrap: wrap; gap: 30px; max-width: 1100px; margin: 0 auto; padding: 40px 20px; }
+.faq-column, .testimonial-column { flex: 1 1 48%; min-width: 300px; padding: 20px; border-radius: 12px; }
+.faq-column { background: #f9f9f9; }
+.testimonial-column { background: #fff8e1; }
+.faq-item, .why-choose-card { background: #ffffff; border-radius: 12px; padding: 20px; margin-bottom: 15px; box-shadow: 0 6px 16px rgba(0,0,0,0.08); }
+
+/* ---------- 7. CTA BANNER ---------- */
+.cta-banner { max-width: 1100px; margin: 40px auto; padding: 30px 20px; background: linear-gradient(90deg, #FFD700, #FF8C00); color: #003366; text-align: center; border-radius: 15px; box-shadow: 0 8px 20px rgba(0,0,0,0.15); }
+.cta-title { font-size: 28px; font-weight: bold; margin-bottom: 15px; display: flex; align-items: center; justify-content: center; gap: 10px; }
+.cta-buttons { display: flex; justify-content: center; gap: 20px; flex-wrap: wrap; }
+.cta-button { display: inline-block; padding: 15px 25px; font-size: 18px; font-weight: bold; color: #ffffff !important; background-color: #003366; border-radius: 12px; text-decoration: none; transition: transform 0.3s; }
+.cta-phone { font-weight: bold; color: #003366; }
+
+/* ---------- 8. SERVICES LIST ---------- */
+.bat-services-list { max-width: 1100px; margin: 40px auto; padding: 20px; }
+.bat-services-h2 { color: #003366; font-size: 28px; border-bottom: 2px solid #FFD700; padding-bottom: 10px; margin-bottom: 20px; }
+.bat-services-intro { margin-bottom: 30px; font-size: 18px; line-height: 1.6; }
+.bat-services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
+.bat-service-category h3 { color: #003366; font-size: 20px; margin-bottom: 15px; border-left: 4px solid #FFD700; padding-left: 10px; }
+.bat-service-item { margin-bottom: 12px; line-height: 1.5; font-size: 15px; }
+
+/* ---------- 9. FOOTER ---------- */
+.bat-footer { background: #1a1a1a; color: #ffffff; padding: 60px 0; }
+.bat-footer-wrap { width: 90%; max-width: 1400px; margin: 0 auto; display: flex; flex-wrap: wrap; justify-content: space-between; gap: 40px; }
+.bat-footer-col { flex: 1; min-width: 280px; }
+.bat-footer-col a { color: #cccccc; text-decoration: none; display: block; line-height: 2.2; }
+.bat-footer-brand { color: #FFD700; font-size: 20px; display: block; margin-bottom: 20px; }
+.bat-footer-header { color: #ffffff; font-size: 16px; display: block; margin-bottom: 20px; border-bottom: 1px solid #333; padding-bottom: 10px; text-transform: uppercase; }
+.bat-footer-bottom { width: 100%; border-top: 1px solid #333; margin-top: 50px; padding: 25px 5%; display: flex; justify-content: space-between; flex-wrap: wrap; font-size: 13px; color: #888; }
+
+/* ---------- 10. CARD GRADIENTS ---------- */
+.bat-card-navy { background: linear-gradient(145deg, #002D62 0%, #001a3a 100%); box-shadow: 0 15px 35px rgba(0,45,98,0.2); }
+.bat-card-pink { background: linear-gradient(145deg, #D81B60 0%, #a01447 100%); box-shadow: 0 15px 35px rgba(216,27,96,0.2); }
+.bat-card-green { background: linear-gradient(145deg, #2E7D32 0%, #1e5221 100%); box-shadow: 0 15px 35px rgba(46,125,50,0.2); }
+.bat-card-circle-light { background: rgba(255,255,255,0.1); }
+
+/* ---------- 11. COLOUR & LAYOUT HELPERS ---------- */
+.bat-flex-j-center { display: flex; justify-content: center; }
+.bat-flex-wrap { flex-wrap: wrap; }
+.bat-gap-20 { gap: 20px; }
+.bat-mb-20 { margin-bottom: 20px; }
+.bat-mt-10 { margin-top: 10px; }
+.bat-mb-30 { margin-bottom: 30px; }
+.bat-text-center { text-align: center; }
+.bat-fs-26 { font-size: 26px; }
+.bat-color-gold { color: #FFD700; }
+.bat-color-navy { color: #003366; }
+.bat-color-orange { color: #FF8C00; }
+.bat-bg-green-dark { background-color: #2E7D32; }
+.bat-bg-blue-med { background-color: #1565C0; }
+.bat-bg-orange-dark { background-color: #B85C00; }
+.bat-bg-purple-dark { background-color: #6A1B9A; }
+.bat-bg-grey-blue { background-color: #455A64; }
+.bat-faq-q { color: #003366; font-size: 18px; font-weight: bold; margin-bottom: 6px; display: block; }
+.bat-faq-a { color: #333; font-size: 15px; line-height: 1.6; }
+.bat-testi-check { font-weight: bold; color: #FF8C00; font-size: 17px; margin-bottom: 6px; }
+
+/* ---------- 12. HOVER & RESPONSIVE ---------- */
+.bat-btn-blue:hover, .bat-card-btn:hover, .cta-button:hover { color: #ffffff !important; transform: scale(1.05); }
+@media (max-width: 768px) {
+    .gallery-item { flex: 1 1 100%; }
+    .faq-column, .testimonial-column { flex: 1 1 100%; }
+    .bat-hero-h1 { font-size: 32px; }
+    .cta-title { font-size: 24px; }
+}
+
+.bat-county-grid { display:flex;flex-wrap:wrap;gap:10px;margin-bottom:40px; }
+.bat-county-loc-link { background:#002D62;color:#fff;padding:8px 14px;border-radius:4px;text-decoration:none;font-size:14px; }
+.bat-county-loc-link:hover { background:#FFD700;color:#002D62; }
+

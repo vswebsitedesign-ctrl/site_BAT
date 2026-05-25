@@ -1,0 +1,26 @@
+baseurl: ''
+description: Helping people with all property clearance solutions. Local independent
+  business serving Cornwall, Devon and UK-wide. Fully insured. Environment Agency
+  registered waste carrier. 15+ years experience.
+email: null
+exclude:
+- .sass-cache/
+- .jekyll-cache/
+- Gemfile
+- Gemfile.lock
+- vendor/
+- assets/css/backup/
+plugins:
+- jekyll-feed
+- jekyll-sitemap
+primary_phone: 07931 476 744
+sass:
+  quiet_deps: true
+  silence_deprecations:
+  - import
+  - global-builtin
+  - color-functions
+site_name: BAT
+theme: minima
+title: Buildings and Trust
+url: https://buildingsandtrust.co.uk
