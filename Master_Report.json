@@ -1,6 +1,6 @@
 {
   "version": "1.0.0",
-  "last_updated": "2026-05-25",
+  "last_updated": "2026-05-26",
   "project_metadata": {
     "name": "Buildings and Trust",
     "domain": "https://buildingsandtrust.co.uk",
@@ -47434,6 +47434,14 @@
     {
       "date": "2026-05-25",
       "change": "Added GitHub Actions build-only workflow (no rsync). Created build.py and .gitattributes."
+    },
+    {
+      "date": "2026-05-25",
+      "change": "Initialized git repository locally, added .gitignore, created initial commit."
+    },
+    {
+      "date": "2026-05-25",
+      "change": "Pushed to GitHub: remote set to https://github.com/vswebsitedesign-ctrl/site_BAT.git. GitHub Actions will now build on push."
     }
   ],
   "known_issues": {
@@ -47480,7 +47488,13 @@
     "workflow_status": "not set up",
     "github_secret": "SSH_PRIVATE_KEY (required when workflow is created)",
     "notes": "Deployment to Plesk not configured; artifact uploads build/",
-    "github_actions_status": "build-only workflow added (no Plesk)",
-    "workflow_file": ".github/workflows/deploy.yml"
+    "github_actions_status": "build-only workflow \u2013 ready, runs on push",
+    "workflow_file": ".github/workflows/deploy.yml",
+    "git_initialized": true,
+    "git_remote": "https://github.com/vswebsitedesign-ctrl/site_BAT.git",
+    "server_ip": "NOT YET CONFIGURED",
+    "deploy_configured": false,
+    "deploy_status": "PENDING \u2014 no IP or deploy user set in workflow",
+    "recommended_method": "GitHub Actions + rsync over SSH as Plesk domain system user (not root) \u2014 see site_JKRS deploy.yml as reference implementation"
   }
 }
