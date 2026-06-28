@@ -1,22 +1,22 @@
----
----
 <!DOCTYPE html>
 <html lang="en-GB">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Buildings and Trust – Professional Property Clearance with Sharna – Buildings and Trust</title>
-  <meta name="description" content="Helping people with all property clearance solutions. Professional, affordable, and trustworthy clearance services for homes and businesses.">
-  <link rel="canonical" href="https://buildingsandtrust.co.uk">
-  <meta property="og:title" content="Buildings and Trust – Professional Property Clearance with Sharna – Buildings and Trust">
-  <meta property="og:description" content="Helping people with all property clearance solutions. Professional, affordable, and trustworthy clearance services for homes and businesses.">
-  <meta property="og:url" content="https://buildingsandtrust.co.uk">
+  <title>{{ title }}</title>
+  <meta name="description" content="{{ meta_description }}">
+  <link rel="canonical" href="{{ canonical }}">
+  <meta name="robots" content="index, follow">
+  <meta name="robots" content="max-image-preview:large">
+  <meta property="og:title" content="{{ title }}">
+  <meta property="og:description" content="{{ meta_description }}">
+  <meta property="og:url" content="{{ canonical }}">
   <meta property="og:type" content="website">
-  <meta property="og:image" content="https://buildingsandtrust.co.uk/assets/images/buildings-and-trust-van.webp">
+  <meta property="og:image" content="{{ image }}">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Buildings and Trust – Professional Property Clearance with Sharna – Buildings and Trust">
-  <meta name="twitter:description" content="Helping people with all property clearance solutions. Professional, affordable, and trustworthy clearance services for homes and businesses.">
-  <meta name="twitter:image" content="https://buildingsandtrust.co.uk/assets/images/buildings-and-trust-van.webp">
+  <meta name="twitter:title" content="{{ title }}">
+  <meta name="twitter:description" content="{{ meta_description }}">
+  <meta name="twitter:image" content="{{ image }}">
   <link rel="stylesheet" href="/assets/bat-styles.css">
   <style>
     :root {
@@ -56,39 +56,21 @@
       line-height: 1.2;
     }
     .bat-logo span { display: block; color: #fff; font-size: 0.75rem; font-weight: 400; letter-spacing: 0.05em; }
-    .bat-nav ul { list-style: none; display: flex; align-items: center; gap: 5px; }
-    .bat-nav ul li a {
-      color: #fff;
-      text-decoration: none;
-      padding: 8px 14px;
-      border-radius: 6px;
-      font-size: 0.9rem;
-      font-weight: 500;
-      transition: background 0.2s;
-    }
-    .bat-nav ul li a:hover { background: rgba(255,255,255,0.1); }
-    .bat-nav ul li.nav-phone a {
-      background: var(--bat-gold);
-      color: var(--bat-navy);
-      font-weight: 700;
-    }
-    .bat-nav ul li.nav-phone a:hover { background: #e6c200; }
-    .bat-hamburger {
-      display: none;
-      flex-direction: column;
-      gap: 5px;
-      background: none;
-      border: none;
-      cursor: pointer;
-      padding: 5px;
-    }
-    .bat-hamburger span { display: block; width: 25px; height: 2px; background: #fff; border-radius: 2px; }
-    @media (max-width: 768px) {
-      .bat-hamburger { display: flex; }
-      .bat-nav { display: none; position: absolute; top: 100%; left: 0; right: 0; background: var(--bat-navy); padding: 10px 20px; }
-      .bat-nav.open { display: block; }
-      .bat-nav ul { flex-direction: column; gap: 5px; }
-      .bat-nav ul li a { display: block; }
+    /* NAV - hamburger hidden by default, shown only on mobile */
+    .bat-hamburger { display: none; background: none; border: none; cursor: pointer; padding: 5px; }
+    .bat-hamburger span { display: block; width: 25px; height: 2px; background: #fff; border-radius: 2px; margin: 4px 0; }
+    #bat-nav { display: flex; align-items: center; }
+    #bat-nav ul { list-style: none; display: flex; align-items: center; gap: 5px; margin: 0; padding: 0; }
+    #bat-nav ul li a { color: #fff; text-decoration: none; padding: 8px 14px; border-radius: 6px; font-size: 0.9rem; font-weight: 500; transition: background 0.2s; }
+    #bat-nav ul li a:hover { background: rgba(255,255,255,0.1); }
+    #bat-nav ul li.nav-phone a { background: var(--bat-gold); color: var(--bat-navy); font-weight: 700; }
+    #bat-nav ul li.nav-phone a:hover { background: #e6c200; }
+    @media screen and (max-width: 768px) {
+      .bat-hamburger { display: flex !important; flex-direction: column; }
+      #bat-nav { display: none; position: absolute; top: 100%; left: 0; right: 0; background: var(--bat-navy); padding: 10px 20px; }
+      #bat-nav.open { display: block; }
+      #bat-nav ul { flex-direction: column; gap: 5px; }
+      #bat-nav ul li a { display: block; }
     }
 
     /* WHATSAPP BAR */
@@ -188,9 +170,79 @@
   gtag("js", new Date());
   gtag("config", "G-640V3FJRTP");
 </script>
+<!-- Sitewide Schema -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  "name": "Buildings and Trust",
+  "url": "https://buildingsandtrust.co.uk",
+  "logo": "https://buildingsandtrust.co.uk/assets/images/buildings-and-trust.webp",
+  "image": "https://buildingsandtrust.co.uk/assets/images/buildings-and-trust.webp",
+  "description": "Professional house clearance, rubbish removal and property clearance services across the UK. Locally based husband and wife team. Fully licensed, insured and Environment Agency registered.",
+  "telephone": "+447859730296",
+  "email": "darren@buildingsandtrust.co.uk",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "5 Goole Road, Swinefleet",
+    "addressLocality": "Goole",
+    "addressRegion": "East Yorkshire",
+    "postalCode": "DN14 8AR",
+    "addressCountry": "GB"
+  },
+  "geo": {
+    "@type": "GeoCoordinates",
+    "latitude": 53.6785,
+    "longitude": -0.8506
+  },
+  "areaServed": {
+    "@type": "Country",
+    "name": "United Kingdom"
+  },
+  "openingHoursSpecification": [
+    {
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"],
+      "opens": "07:00",
+      "closes": "20:00"
+    }
+  ],
+  "priceRange": "££",
+  "currenciesAccepted": "GBP",
+  "paymentAccepted": "Cash, Bank Transfer",
+  "founder": {
+    "@type": "Person",
+    "name": "Sharna"
+  },
+  "sameAs": [
+    "https://buildingsandtrust.co.uk"
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "name": "Buildings and Trust",
+  "url": "https://buildingsandtrust.co.uk",
+  "potentialAction": {
+    "@type": "SearchAction",
+    "target": "https://buildingsandtrust.co.uk/?s={search_term_string}",
+    "query-input": "required name=search_term_string"
+  }
+}
+</script>
+<!-- End Sitewide Schema -->
+{{ page_schema }}
 </head>
-<body><main>{{ content }}</main>
-
+<body>
+<!-- Sticky Notification Bar -->
+<div id="bat-sticky-bar" style="position:fixed;bottom:0;left:0;right:0;z-index:99998;background:#002D62;border-top:2px solid #FFD700;padding:12px 20px;display:flex;align-items:center;justify-content:center;gap:15px;flex-wrap:wrap;">
+  <span style="color:#fff;font-size:0.9rem;font-weight:600;">📍 GPS tracked vans — so we can give you up to date arrival times. No waiting in!</span>
+  <a href="tel:07859730296" style="background:#FFD700;color:#002D62;padding:10px 20px;border-radius:50px;text-decoration:none;font-weight:700;font-size:0.9rem;white-space:nowrap;">📞 Call Sharna: 07859 730296</a>
+  <button onclick="document.getElementById('bat-sticky-bar').style.display='none'" style="background:none;border:none;color:#fff;font-size:20px;cursor:pointer;padding:0 5px;line-height:1;" aria-label="Close">✕</button>
+</div>
+<!-- End Sticky Notification Bar -->
 <header class="bat-header">
   <div class="bat-header-inner">
     <a href="/" class="bat-logo">
@@ -210,10 +262,14 @@
     </nav>
   </div>
 </header>
-
 <div class="bat-whatsapp-bar">
   <a href="https://wa.me/447859730296">💬 Quickest quote: send property images on WhatsApp — Sharna guarantees images are for quoting purposes only</a>
 </div>
+<main>{{ content }}</main>
+
+
+
+
 
 <footer class="bat-footer">
   <div class="bat-footer-inner">
@@ -327,5 +383,30 @@
 })();
 </script>
 <!-- End Exit Intent Popup -->
+<!-- Cookie Consent Badge -->
+<div id="cookie-consent" style="display:none;position:fixed;bottom:20px;left:20px;z-index:99999;max-width:320px;background:#002D62;color:#fff;border-radius:12px;padding:18px 20px;box-shadow:0 8px 30px rgba(0,0,0,0.25);font-size:14px;line-height:1.5;">
+  <p style="margin:0 0 12px;">🍪 We use cookies to improve your experience. By continuing you agree to our <a href="/cookie-policy" style="color:#FFD700;text-decoration:underline;">Cookie Policy</a>.</p>
+  <div style="display:flex;gap:10px;">
+    <button onclick="acceptCookies()" style="flex:1;background:#FFD700;color:#002D62;border:none;border-radius:8px;padding:10px;font-weight:700;font-size:14px;cursor:pointer;">Accept</button>
+    <button onclick="declineCookies()" style="flex:1;background:rgba(255,255,255,0.15);color:#fff;border:none;border-radius:8px;padding:10px;font-weight:700;font-size:14px;cursor:pointer;">Decline</button>
+  </div>
+</div>
+<script>
+(function(){
+  if(!localStorage.getItem('cookieConsent')){
+    setTimeout(function(){
+      document.getElementById('cookie-consent').style.display='block';
+    }, 1500);
+  }
+})();
+function acceptCookies(){
+  localStorage.setItem('cookieConsent','accepted');
+  document.getElementById('cookie-consent').style.display='none';
+}
+function declineCookies(){
+  localStorage.setItem('cookieConsent','declined');
+  document.getElementById('cookie-consent').style.display='none';
+}
+</script>
 </body>
 </html>

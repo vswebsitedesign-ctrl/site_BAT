@@ -1,12 +1,12 @@
 {
   "version": "1.0.0",
-  "last_updated": "2026-05-26",
+  "last_updated": "2026-06-28",
   "project_metadata": {
     "name": "Buildings and Trust",
     "domain": "https://buildingsandtrust.co.uk",
     "project_root": "/home/chubert/omni-builder/sites/site_BAT",
     "tagline": "",
-    "email": null,
+    "email": "darren@buildingsandtrust.co.uk",
     "phone": "07931 476 744"
   },
   "architecture_contract": {
@@ -34,7 +34,7 @@
   },
   "data_schema": {
     "pages.json": {
-      "total_pages": 47284,
+      "total_pages": 47313,
       "slugs": [
         "house-clearance-cost-guide",
         "privacy-policy",
@@ -47325,18 +47325,67 @@
         "slug",
         "title",
         "body_content"
-      ]
+      ],
+      "service_hub_pages_added": "26 service hub pages added 2026-06-11"
+    },
+    "pages_json_audit": {
+      "date": "2026-06-11",
+      "total_pages": 47287,
+      "pages_with_body_content": 12418,
+      "pages_without_body_content": 34866,
+      "pages_with_meta_description": 6,
+      "pages_without_meta_description": 47283,
+      "body_content_note": "Pages with body content are Cornwall and Devon location pages \u2014 body_content field contains full HTML. UK location pages (e.g. house-clearance-leeds) have empty body_content and are built dynamically by build.py from a template.",
+      "meta_description_note": "Only house-clearance-cost-guide has a meta description as of 2026-06-11. All 47,283 remaining pages have no meta \u2014 critical SEO gap.",
+      "top_slug_prefixes": {
+        "house": 7141,
+        "rubbish": 6254,
+        "bereavement": 6254,
+        "hoarder": 6254,
+        "loft": 6254,
+        "probate": 6254,
+        "scrap": 1329,
+        "commercial": 443,
+        "same": 443,
+        "attic": 443,
+        "office": 443,
+        "waste": 443,
+        "guest": 443,
+        "shed": 443,
+        "garage": 443,
+        "care": 443,
+        "caravan": 443,
+        "black": 443
+      },
+      "gsc_data": {
+        "queries_csv": "data/gsc_queries.csv",
+        "pages_csv": "data/gsc_pages.csv",
+        "key_path": "key.json",
+        "total_queries": 35227,
+        "total_pages": 56719,
+        "export_scripts": {
+          "queries": "~/gsc/export_gsc.py",
+          "pages": "~/gsc/export_gsc_pages.py"
+        }
+      },
+      "homepage_added": "slug: home added 2026-06-11",
+      "meta_note_updated": "All 47,287 pages now get unique meta \u2014 manual entries take priority, dynamic generation fills the rest via build.py",
+      "title_note_updated": "All 47,287 pages now get unique titles \u2014 manual entries take priority, 34,866 UK location pages bulk updated to strong pattern"
     }
   },
   "build_pipeline": {
-    "generator": "omni-builder",
-    "build_root": "/home/chubert/omni-builder",
-    "template_token": "{{ content }}",
-    "all_sites_build_command": "cd /home/chubert/omni-builder && python3 engine/build_sites.py",
-    "single_site_build_command": "cd /home/chubert/omni-builder && python3 -c \"from engine.build_sites import build_single_site; build_single_site('sites/site_BAT')\"",
-    "serve_command": "cd /home/chubert/omni-builder/sites/site_BAT/build && python3 -m http.server 8000",
-    "notes": "Engine does plain string replace only. base.html must use {{ content }} exclusively. All includes must be inlined into base.html. Never append serve command to build command.",
-    "engine_fix": "if __name__ == __main__ guard added to build_sites.py"
+    "build_command": "cd /home/chubert/omni-builder/sites/site_BAT && python3 build.py",
+    "pages_built": 47313,
+    "homepage_slug": "home",
+    "homepage_note": "Homepage added to pages.json as slug home on 2026-06-11. build.py must copy build/home/index.html to build/index.html after every build.",
+    "homepage_server_path": "/var/www/vhosts/buildingsandtrust.co.uk/httpdocs/index.html",
+    "deploy_command": "rsync -avz --exclude=index.html -e \"ssh -i ~/.ssh/github_actions_bat\" /home/chubert/omni-builder/sites/site_BAT/build/ root@217.154.33.12:/var/www/vhosts/buildingsandtrust.co.uk/httpdocs/",
+    "deploy_note": "Exclude index.html from rsync until homepage build step confirmed working. Then remove exclude and homepage is fully pipeline-managed.",
+    "snapshot_scripts": "snapshot.sh and restore.sh created 2026-06-11 \u2014 use before every risky change",
+    "snapshots_dir": "/home/chubert/omni-builder/sites/site_BAT/snapshots/",
+    "homepage_copy_step": "CONFIRMED",
+    "robots_txt": "Auto-generated on every build",
+    "sitemap_xml": "Auto-generated on every build with all 47,313 URLs"
   },
   "ai_governance": {
     "rules": [
@@ -47442,6 +47491,82 @@
     {
       "date": "2026-05-25",
       "change": "Pushed to GitHub: remote set to https://github.com/vswebsitedesign-ctrl/site_BAT.git. GitHub Actions will now build on push."
+    },
+    {
+      "date": "2026-06-01",
+      "change": "project_metadata.email updated to darren@buildingsandtrust.co.uk for contact form."
+    },
+    {
+      "date": "2026-06-01",
+      "change": "send.php addAddress updated to darren@buildingsandtrust.co.uk \u2014 contact form submissions now route to new email."
+    },
+    {
+      "date": "2026-06-01",
+      "change": "Deployment method confirmed: manual rsync only using ssh -i ~/.ssh/github_actions_bat to root@217.154.33.12. GitHub Actions workflow builds only \u2014 no rsync to Plesk. deploy.sh updated to use correct SSH key."
+    },
+    {
+      "date": "2026-06-01",
+      "change": "robots.txt and sitemap.xml created and deployed to live server. Sitemap contains 47,284 URLs generated from data/pages.json. robots.txt points to https://buildingsandtrust.co.uk/sitemap.xml."
+    },
+    {
+      "date": "2026-06-01",
+      "change": "404 fix: 100 x 301 redirects (plural slug -> singular service-location page) and 900 x 410 Gone responses added to vhost_nginx.conf. Backup saved as vhost_nginx.conf.bak.2026-06-01."
+    },
+    {
+      "date": "2026-06-01",
+      "change": "404 fix batch 2: GSC API used to pull 27,438 URLs. 3,702 missing from pages.json. 178 x 301 redirects and 3,524 x 410 Gone added to vhost_nginx.conf. Backup saved as vhost_nginx.conf.bak.2026-06-01c."
+    },
+    {
+      "date": "2026-06-03",
+      "change": "AI safety governance block added: AI_READ_THIS_FIRST, session_workflow, recovery, ai_incident_log. Adapted from site_cic and site_tales proven session safety patterns. All rules, mandatory workflows, deploy commands, and emergency rollback procedures now documented as first-read entry point for every AI session."
+    },
+    {
+      "date": "2026-06-11",
+      "change": "Best practices appended from site_tales master report: stronger commit-to-main rule, explicit build/ sed ban, session_start/end workflow, AI parsing requirement."
+    },
+    {
+      "date": "2026-06-11",
+      "change": "Full GSC audit completed. pages.json audited: 47,284 total pages, 12,418 with body content (Cornwall/Devon only), 34,866 empty shells built by build.py template, only 1 meta description exists. GSC exports: 35,227 queries, 56,719 pages. Cost guide title and meta fixed. 393 gaz-the-handyman 410s confirmed live in nginx. GSC CSV files moved to project root."
+    },
+    {
+      "date": "2026-06-11",
+      "change": "Pending tasks added to Master Report from GSC audit session. 7 tasks logged with priority and status."
+    },
+    {
+      "date": "2026-06-11",
+      "change": "Added page_templates, server config, nginx 410 status, and GSC setup details to Master Report. All findings from 2026-06-11 audit session now fully documented."
+    },
+    {
+      "date": "2026-06-11",
+      "change": "Session 2 complete. base.html and build.py updated to inject unique title/meta/canonical/og:url per page. Dynamic title and meta generation added to build.py covering all 47,287 pages. 34,866 UK location titles bulk updated to strong CTR pattern. probate-clearance and bereavement-clearance main service pages built and added to pages.json. Manchester/Nottingham/London/Redhill metas fixed. Homepage pulled from live server and added to pages.json as slug home. snapshot.sh and restore.sh created. 5 snapshots taken. Deploy pending task 8 (homepage copy step in build.py)."
+    },
+    {
+      "date": "2026-06-11",
+      "change": "Session 3 complete. Homepage copy step added to build.py and verified. 26 service hub pages added to pages.json and verified locally. All service hub pages rendering correctly. Task 9 renamed task 11 \u2014 deploy pending. Total pages now 47,313. Snapshot taken: all-26-service-hub-pages-added."
+    },
+    {
+      "date": "2026-06-11",
+      "change": "Session 4 complete. Jekyll front matter removed from base.html. Nav CSS fixed desktop-first. Hero mobile layout fixed \u2014 image full width, h1/text/buttons in navy block below. Cookie consent badge confirmed working. robots.txt, sitemap.xml live and verified. Full deploy complete. 47,313 pages live."
+    },
+    {
+      "date": "2026-06-11",
+      "change": "Sitemap submitted to GSC with 47,313 URLs. Task 18 added \u2014 check GSC at 48hrs (2026-06-13) and again at 2 weeks (2026-06-25). AI to prompt user to pull fresh GSC data at next session after 2026-06-25."
+    },
+    {
+      "id": 19,
+      "task": "Image SEO implemented",
+      "detail": "og:image and twitter:image wired via {{ image }} token in base.html. max-image-preview:large added. house-move-placeholder.jpg created at 1200x675 from buildings-and-trust.webp. image field added to all 47,313 pages in pages.json. Homepage slug fixed from home to index.",
+      "status": "COMPLETE",
+      "completed": "2026-06-22",
+      "priority": "HIGH"
+    },
+    {
+      "id": 20,
+      "task": "Fixed 410 errors on all service hub pages",
+      "detail": "Removed erroneous 410 nginx entries for all service hub slugs. house-clearance, probate-clearance, bereavement-clearance, garage-clearance, shed-clearance, hoarder-clearance, office-clearance, rubbish-removal, man-with-van, house-move, garden-rubbish-removal, attic-loft-clearances all confirmed returning 200.",
+      "status": "COMPLETE",
+      "completed": "2026-06-22",
+      "priority": "HIGH"
     }
   ],
   "known_issues": {
@@ -47459,7 +47584,8 @@
     "homepage_slug": "Engine builds index slug as build/index/index.html \u2014 must be manually copied to build/index.html after every build: cp build/index/index.html build/index.html",
     "base_html_jekyll_tags": "base.html may contain Jekyll tags (site.baseurl, site.title, prepend filters, block/endblock) the engine cannot process \u2014 audit base.html before first build and replace all with plain values or {{ content }}",
     "missing_js_assets": "cookieconsent.umd.js and cookie-init.js may be referenced in base.html but not exist in assets/js/ \u2014 check and remove missing JS references from base.html",
-    "head_styles_in_jekyll": "Some Jekyll pages store CSS in <head> <style> blocks \u2014 extractor must pull <style> block from <head> AND prepend to body content. Affects pages using custom layouts without <main> tags."
+    "head_styles_in_jekyll": "Some Jekyll pages store CSS in <head> <style> blocks \u2014 extractor must pull <style> block from <head> AND prepend to body content. Affects pages using custom layouts without <main> tags.",
+    "404_slugs_csv": "Table.csv in data/ contains 1000 GSC 404 URLs. 100 redirected to singular service-location equivalents. 900 marked 410 Gone. Nginx rules in vhost_nginx.conf."
   },
   "assets": {
     "images_migrated": true,
@@ -47488,13 +47614,339 @@
     "workflow_status": "not set up",
     "github_secret": "SSH_PRIVATE_KEY (required when workflow is created)",
     "notes": "Deployment to Plesk not configured; artifact uploads build/",
-    "github_actions_status": "build-only workflow \u2013 ready, runs on push",
+    "github_actions_status": "build-only \u2014 no rsync, never deploys to Plesk",
     "workflow_file": ".github/workflows/deploy.yml",
     "git_initialized": true,
     "git_remote": "https://github.com/vswebsitedesign-ctrl/site_BAT.git",
     "server_ip": "NOT YET CONFIGURED",
-    "deploy_configured": false,
-    "deploy_status": "PENDING \u2014 no IP or deploy user set in workflow",
-    "recommended_method": "GitHub Actions + rsync over SSH as Plesk domain system user (not root) \u2014 see site_JKRS deploy.yml as reference implementation"
+    "deploy_configured": true,
+    "deploy_status": "LIVE \u2014 manual rsync via ~/.ssh/github_actions_bat",
+    "recommended_method": "Manual rsync: rsync -avz -e \"ssh -i ~/.ssh/github_actions_bat\" /home/chubert/omni-builder/sites/site_BAT/build/ root@217.154.33.12:/var/www/vhosts/buildingsandtrust.co.uk/httpdocs/"
+  },
+  "AI_READ_THIS_FIRST": {
+    "project": "site_BAT",
+    "domain": "buildingsandtrust.co.uk",
+    "live_server": "NOT YET CONFIGURED",
+    "deploy_user": "root",
+    "ssh_key": "~/.ssh/github_actions_bat",
+    "project_root": "/home/chubert/omni-builder/sites/site_BAT",
+    "master_report_path": "/home/chubert/omni-builder/sites/site_BAT/Master_Report.json",
+    "source_of_truth": "data/pages.json",
+    "build_command": "cd /home/chubert/omni-builder/sites/site_BAT && python3 build.py",
+    "output_directory": "./build/",
+    "theme": "theme/base.html",
+    "github_remote": "https://github.com/vswebsitedesign-ctrl/site_BAT.git",
+    "recovery": [
+      "git clone https://github.com/vswebsitedesign-ctrl/site_BAT.git",
+      "python3 build.py"
+    ],
+    "mandatory_session_workflow": [
+      "1. READ this Master Report in full before any action",
+      "2. bash snapshot.sh \"label\" \u2014 run before EVERY risky change",
+      "3. bash restore.sh snapshots/X \u2014 instant restore if anything breaks",
+      "4. Commit and push only after local build verified clean"
+    ],
+    "emergency_rollback": "git checkout main && git reset --hard HEAD~1",
+    "deploy_command": "SERVER NOT YET CONFIGURED \u2014 do not deploy",
+    "send_php_deploy": "SERVER NOT YET CONFIGURED",
+    "github_actions": "build-only \u2014 NO rsync in deploy.yml \u2014 all deploys are manual rsync from local machine",
+    "ai_rules": [
+      "NEVER modify files inside ./build/ \u2014 fully overwritten on every build",
+      "NEVER rewrite build.py from scratch \u2014 targeted edits only",
+      "NEVER run sed/perl/regex on build/ files",
+      "NEVER commit directly to main without human confirmation",
+      "NEVER guess paths or filenames \u2014 read Master Report first",
+      "NEVER deploy via GitHub Actions rsync \u2014 manual rsync only",
+      "NEVER leave send.php redirecting anywhere other than /thank-you/",
+      "NEVER delete fields from Master Report \u2014 append only",
+      "ALWAYS read Master Report in full before any bash command",
+      "ALWAYS snapshot before every risky change",
+      "ALWAYS verify changes with a read-back command before building",
+      "ALWAYS batch fact-finding commands into a single paste",
+      "ALWAYS confirm best practice and no guessing with every command",
+      "Content changes go in data/pages.json only",
+      "Layout changes go in theme/base.html only if unavoidable",
+      "build.py must generate robots.txt and sitemap.xml on every build",
+      "Homepage slug rule: after every build copy build/{homepage_slug}/index.html to build/index.html",
+      "NEVER commit directly to main during a session \u2014 no exceptions",
+      "NEVER attempt to run sed, perl, or text replacements on files inside ./build/ \u2014 it is ephemeral and fully overwritten on every build",
+      "AI must parse this entire Master Report completely before generating any bash commands \u2014 no blind regex strings or file overwrites allowed without tracking state dependencies first"
+    ]
+  },
+  "session_workflow": {
+    "description": "Mandatory workflow for every AI session",
+    "before_any_work": "Read Master_Report.json in full \u2014 no exceptions",
+    "before_risky_change": "bash snapshot.sh \"description\" \u2014 snapshots all critical files",
+    "restore_from_snapshot": "bash restore.sh snapshots/TIMESTAMP_label \u2014 restores all critical files",
+    "session_end": "Commit with descriptive message, push to GitHub, update Master Report changelog",
+    "emergency_rollback": "git checkout main && git branch -D session-BRANCHNAME",
+    "ai_mandatory_rules": [
+      "Read Master Report before any work begins",
+      "Snapshot before every risky change",
+      "Never commit directly to main during a session without human confirmation",
+      "Never make changes without telling the human exactly what will change first",
+      "Never run sed, perl, or regex on build/ files",
+      "Never rewrite build.py \u2014 targeted edits only",
+      "Never guess \u2014 always verify from disk",
+      "Batch all fact-finding into single commands"
+    ],
+    "mandatory_session_workflow": [
+      "1. bash session_start.sh \"label\" \u2014 creates git branch, protects main",
+      "2. bash snapshot.sh \"label\" \u2014 run before EVERY risky change",
+      "3. bash restore.sh snapshots/X \u2014 instant restore if anything breaks",
+      "4. bash session_end.sh \"msg\" \u2014 merge to main, push, clean snapshots"
+    ]
+  },
+  "recovery": {
+    "description": "Full site recovery from scratch \u2014 two commands only",
+    "step_1": "git clone https://github.com/vswebsitedesign-ctrl/site_BAT.git",
+    "step_2": "python3 build.py",
+    "note": "All assets, content, and build logic are in the repo. pages.json tracked via Git LFS \u2014 ensure lfs: true on checkout."
+  },
+  "ai_incident_log": {
+    "description": "Permanent log of AI errors on this project \u2014 read before every session",
+    "incidents": [],
+    "permanent_fix": "AI must read this entire Master Report before generating any bash commands. No assumptions. No guessing. Verify everything from disk."
+  },
+  "pending_tasks": {
+    "last_updated": "2026-06-28",
+    "tasks": [
+      {
+        "id": 1,
+        "task": "Export GSC search queries and page URLs",
+        "detail": "Exported 35,227 search queries and 56,719 page URLs from Google Search Console. Moved GSC data into project root for proper isolation. Fixed API key path in both export scripts.",
+        "status": "COMPLETE",
+        "completed": "2026-06-11",
+        "priority": "HIGH"
+      },
+      {
+        "id": 2,
+        "task": "Build system overhaul \u2014 unique meta per page",
+        "detail": "Every page now gets unique title, meta description, canonical URL and og:url. 47,313 pages have auto-generated unique meta descriptions.",
+        "status": "COMPLETE",
+        "completed": "2026-06-11",
+        "priority": "HIGH"
+      },
+      {
+        "id": 3,
+        "task": "robots.txt and sitemap.xml auto-generation",
+        "detail": "robots.txt and sitemap.xml now auto-generate on every build with all 47,313 URLs. Confirmed live on buildingsandtrust.co.uk/robots.txt",
+        "status": "COMPLETE",
+        "completed": "2026-06-11",
+        "priority": "HIGH"
+      },
+      {
+        "id": 4,
+        "task": "snapshot.sh and restore.sh created",
+        "detail": "Instant rollback available via snapshot.sh and restore.sh in project root.",
+        "status": "COMPLETE",
+        "completed": "2026-06-11",
+        "priority": "HIGH"
+      },
+      {
+        "id": 5,
+        "task": "34,866 UK location page titles updated",
+        "detail": "All 34,866 UK location page titles updated to click-worthy format e.g. House Clearance Aberdeen | Free Quotes | Licensed and Insured.",
+        "status": "COMPLETE",
+        "completed": "2026-06-11",
+        "priority": "HIGH"
+      },
+      {
+        "id": 6,
+        "task": "26 service hub pages created",
+        "detail": "All 26 main service hub pages created: house clearance, probate, bereavement, rubbish removal, hoarder clearance, garage clearance, shed clearance, attic/loft, loft insulation, office clearance, garden rubbish, building site waste, commercial waste, black bag, waste item pickup, house move, removals, man with van, guest house clearance, house clean, care clearance, scrap car, scrap motorbike, scrap motorhome, caravan disposal, old caravan, we buy houses, same day services.",
+        "status": "COMPLETE",
+        "completed": "2026-06-11",
+        "priority": "HIGH"
+      },
+      {
+        "id": 7,
+        "task": "Probate and bereavement UK service pages built",
+        "detail": "Targeting 14,000+ zero-click impressions. Both pages verified in build and deployed.",
+        "status": "COMPLETE",
+        "completed": "2026-06-11",
+        "priority": "HIGH"
+      },
+      {
+        "id": 8,
+        "task": "Fixed meta descriptions for top location pages",
+        "detail": "Fixed meta descriptions for Manchester, Nottingham, London, Redhill. Fixed title and meta on house clearance cost guide page.",
+        "status": "COMPLETE",
+        "completed": "2026-06-11",
+        "priority": "HIGH"
+      },
+      {
+        "id": 9,
+        "task": "Confirmed 393 dead Gaz the Handyman pages returning 410 Gone",
+        "detail": "393 dead pages confirmed returning 410 Gone \u2014 correctly excluded from index.",
+        "status": "COMPLETE",
+        "completed": "2026-06-11",
+        "priority": "MEDIUM"
+      },
+      {
+        "id": 10,
+        "task": "Homepage brought into build pipeline",
+        "detail": "Homepage no longer a standalone file on server. build.py copies build/home/index.html to build/index.html on every build.",
+        "status": "COMPLETE",
+        "completed": "2026-06-11",
+        "priority": "HIGH"
+      },
+      {
+        "id": 11,
+        "task": "send.php contact form created",
+        "detail": "Contact form send.php created in assets/ and deployed. Email delivery confirmed working. Redirects to /thank-you/ on success.",
+        "status": "COMPLETE",
+        "completed": "2026-06-11",
+        "priority": "HIGH"
+      },
+      {
+        "id": 12,
+        "task": "Cookie consent badge added",
+        "detail": "Cookie consent badge added with Accept/Decline buttons and localStorage persistence. Appears bottom-left after 1.5s delay.",
+        "status": "COMPLETE",
+        "completed": "2026-06-11",
+        "priority": "MEDIUM"
+      },
+      {
+        "id": 13,
+        "task": "Sticky notification bar added",
+        "detail": "Sticky bar added with GPS tracking message and Sharna phone number 07859 730296. Closeable via X button.",
+        "status": "COMPLETE",
+        "completed": "2026-06-11",
+        "priority": "MEDIUM"
+      },
+      {
+        "id": 14,
+        "task": "Jekyll front matter removed from base.html",
+        "detail": "Two --- lines at top of base.html removed. Was causing all 47,313 pages to render with --- before DOCTYPE.",
+        "status": "COMPLETE",
+        "completed": "2026-06-11",
+        "priority": "HIGH"
+      },
+      {
+        "id": 15,
+        "task": "Desktop navigation header fixed",
+        "detail": "Nav CSS rewritten desktop-first. #bat-nav display:flex globally, .bat-hamburger display:none globally, only overridden inside max-width:768px media query.",
+        "status": "COMPLETE",
+        "completed": "2026-06-11",
+        "priority": "HIGH"
+      },
+      {
+        "id": 16,
+        "task": "Homepage hero mobile layout fixed",
+        "detail": "Mobile hero now shows image full width at 260px height with no overlay. h1, paragraph and CTA buttons appear in navy block below the image. Desktop layout unchanged.",
+        "status": "COMPLETE",
+        "completed": "2026-06-11",
+        "priority": "HIGH"
+      },
+      {
+        "id": 17,
+        "task": "Full deploy to live server",
+        "detail": "All 47,313 pages deployed via rsync to root@217.154.33.12. robots.txt confirmed live. sitemap.xml live. All service hub pages live.",
+        "status": "COMPLETE",
+        "completed": "2026-06-11",
+        "priority": "HIGH"
+      },
+      {
+        "id": 18,
+        "task": "Check GSC sitemap status and indexing progress",
+        "detail": "Sitemap submitted to GSC on 2026-06-11 with 47,313 URLs. Check 1: 48 hours after submission (2026-06-13) \u2014 confirm sitemap status shows Success, URL count close to 47,313, no coverage errors. Check 2: 2 weeks after submission (2026-06-25) \u2014 check indexing progress on service hub pages and location pages. AI NOTE: At start of next session after 2026-06-25, remind user to pull fresh GSC data and compare indexed URL count against 47,313 submitted. Look for coverage errors, excluded pages, and crawl anomalies.",
+        "priority": "HIGH",
+        "status": "PENDING",
+        "due_check_1": "2026-06-13",
+        "due_check_2": "2026-06-25"
+      },
+      {
+        "id": 19,
+        "task": "UK service location pages body_content fixed",
+        "detail": "34,866 UK service location pages were rendering with empty body_content. Root cause: build.py had no dynamic template generation despite master report documenting it as intended. Fixed by adding make_uk_template() function to build.py. Pages now render with full hero, badges, gallery, service cards and CTA sections generated dynamically from slug at build time.",
+        "status": "COMPLETE",
+        "completed": "2026-06-28",
+        "priority": "HIGH"
+      },
+      {
+        "id": 20,
+        "task": "Rotating H1, title and meta description patterns added for UK pages",
+        "detail": "8 distinct H1 patterns, 8 title patterns and 8 meta description patterns added to build.py for all 34,866 UK service location pages. Rotation is hash-based on slug - deterministic across every build. Each pattern includes service name and location name for uniqueness. All patterns include a local signal. Cornwall/Devon pages with full body_content are unaffected.",
+        "status": "COMPLETE",
+        "completed": "2026-06-28",
+        "priority": "HIGH"
+      },
+      {
+        "id": 21,
+        "task": "Schema markup added sitewide and per UK service location page",
+        "detail": "LocalBusiness schema (address: 5 Goole Road, Swinefleet, Goole DN14 8AR, areaServed: United Kingdom) and WebSite schema added to base.html sitewide. BreadcrumbList and Service schema injected per UK page via {{ page_schema }} token in base.html, generated dynamically by make_uk_schema() in build.py. Cornwall/Devon pages get sitewide schema only. Validated clean in Google Rich Results Test: Breadcrumbs, Local businesses, Organization - all 3 valid, zero errors, zero warnings.",
+        "status": "COMPLETE",
+        "completed": "2026-06-28",
+        "priority": "HIGH"
+      }
+    ]
+  },
+  "page_templates": {
+    "uk_location_pages": {
+      "example": "house-clearance-leeds",
+      "title_pattern": "[Service] [Location] | Free Quotes | Licensed & Insured | Buildings and Trust",
+      "meta_pattern": "Professional House Clearance in [LOCATION]. Fully licensed, insured, and eco-friendly. Free quotes, same-day availability. Call Buildings and Trust today.",
+      "h1_pattern": "House Clearance [LOCATION] - Based Locally - Husband and Wife Team",
+      "body_content": "EMPTY in pages.json \u2014 generated dynamically by build.py from template",
+      "meta_source": "Dynamic generation in build.py from slug \u2014 pattern: Professional [Slug Title] service. Fully licensed, insured and eco-friendly. Free same-day quotes from Sharna at Buildings and Trust.",
+      "title_note": "34,866 UK location page titles bulk updated 2026-06-11 from weak \"Service in Location\" pattern to strong click-worthy pattern"
+    },
+    "cornwall_devon_pages": {
+      "example": "house-clearance-truro",
+      "title_pattern": "Your local House Clearance Company - Based in [LOCATION] - Husband and Wife Business | Buildings and Trust",
+      "meta_pattern": "Helping people with all property clearance solutions. Professional, affordable, and trustworthy clearance services for homes and businesses.",
+      "h1_pattern": "House Clearance [LOCATION] - Based in [LOCATION] - Your Local Husband and Wife Business",
+      "body_content": "FULL HTML in pages.json body_content field \u2014 contains complete page HTML",
+      "meta_source": "Dynamic generation in build.py from slug \u2014 same pattern as UK pages. Manual meta_description in pages.json takes priority if set.",
+      "badges": "Trusted Across Cornwall and Devon, +15 Years Experience, Environment Agency Registered, Dependable and Discreet, Fully Insured",
+      "contact_name": "Sharna",
+      "phone": "07859730296"
+    }
+  },
+  "server": {
+    "ip": "217.154.33.12",
+    "ssh_key": "~/.ssh/github_actions_bat",
+    "ssh_command": "ssh -i ~/.ssh/github_actions_bat root@217.154.33.12",
+    "nginx_config": "/var/www/vhosts/system/buildingsandtrust.co.uk/conf/vhost_nginx.conf",
+    "nginx_backup_pattern": "vhost_nginx.conf.bak.YYYY-MM-DD",
+    "nginx_reload": "nginx -t && systemctl reload nginx",
+    "webroot": "/var/www/vhosts/buildingsandtrust.co.uk/httpdocs/",
+    "plesk_note": "plesk nginx command does not work \u2014 use nginx -t and systemctl reload nginx directly"
+  },
+  "nginx_410s": {
+    "gaz_the_handyman": {
+      "status": "LIVE",
+      "count": 393,
+      "note": "408 entries in nginx config (with and without trailing slash). Already existed before 2026-06-11 session \u2014 do not add again or duplicate location error will occur.",
+      "verified": "2026-06-11"
+    },
+    "pattern": "location = /slug/ { return 410; } and location = /slug { return 410; }",
+    "check_before_adding": "Always run grep -c PATTERN vhost_nginx.conf before appending \u2014 never assume entries are missing"
+  },
+  "gsc_setup": {
+    "key_path": "/home/chubert/omni-builder/sites/site_BAT/key.json",
+    "key_path_fix": "sed -i \"s|/home/chubert/gsc/key.json|/home/chubert/omni-builder/sites/site_BAT/key.json|\" ~/gsc/SCRIPT.py",
+    "output_path_fix": "sed -i \"s|with open(FILENAME|with open(/home/chubert/omni-builder/sites/site_BAT/FILENAME|\" ~/gsc/SCRIPT.py",
+    "queries_script": "~/gsc/export_gsc.py",
+    "pages_script": "~/gsc/export_gsc_pages.py",
+    "venv": "~/gsc/venv",
+    "service_account": "gsc-exporter@vocal-eon-491605-s2.iam.gserviceaccount.com",
+    "site_url": "https://buildingsandtrust.co.uk/",
+    "csv_location": "/home/chubert/omni-builder/sites/site_BAT/",
+    "date_range": "2025-01-01 to current date"
+  },
+  "image_seo": {
+    "status": "PLACEHOLDER PHASE",
+    "date_started": "2026-06-22",
+    "strategy": "Single placeholder image used across all 47,313 pages. Ready to swap per service type when real photos available.",
+    "token": "{{ image }}",
+    "placeholder": "https://buildingsandtrust.co.uk/assets/images/placeholders/house-move-placeholder.jpg",
+    "placeholder_dir": "assets/images/placeholders/",
+    "source_image": "assets/images/buildings-and-trust.webp",
+    "og_image": "wired in base.html via {{ image }} token",
+    "twitter_image": "wired in base.html via {{ image }} token",
+    "max_image_preview": "max-image-preview:large added to base.html",
+    "next_action": "Replace placeholder with real service-specific photos. Update image field in pages.json per service type."
   }
 }
