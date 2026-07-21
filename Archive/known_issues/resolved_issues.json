@@ -1,0 +1,4 @@
+{
+  "contact_form_required_fields_wrong": "FIXED 2026-07-21 \u2014 contact-us form required fields corrected (name/phone/postcode/service required, email/message optional) in data/pages.json and assets/send.php. See reference/contact_form_required_fields_wrong.md for history.",
+  "build_time_verification": "RESOLVED 2026-07-21 \u2014 build.py now fails loudly (exit 1) if send.php, homepage, robots.txt, or sitemap.xml are missing or empty after build, instead of silently succeeding. Tested and confirmed working both ways (happy path exit 0, deliberate failure test exit 1)."
+}

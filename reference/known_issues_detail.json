@@ -1,0 +1,19 @@
+{
+  "template_tags_in_base": "base.html may contain {% %} or {{ title }} tags the engine cannot process \u2014 use {{ content }} only",
+  "includes_not_rendered": "engine has no include system \u2014 all global components must be inlined into base.html",
+  "assets_not_in_build": "assets/ directory is not copied to build/ automatically \u2014 serve from project root or copy manually",
+  "port_clash": "always check port 8000 is free before serving \u2014 build only and refresh if server already running",
+  "assets_build_sync": "assets/ must be re-copied into build/ after every build \u2014 cp -r assets/ build/assets/ from each site root",
+  "body_content_full_html": "body_content must never contain full standalone HTML documents (no <!DOCTYPE>, <html>, <head>, <body> tags). Strip to <main> contents only. Full documents cause double header/footer when wrapped by base.html. Fix: re.search(r\"<main[^>]*>(.*?)</main>\", body, re.DOTALL)",
+  "jekyll_site_source_of_truth": "Where a matching Jekyll source exists at /home/chubert/<PROJECT>/_site/, use compiled _site HTML as body_content source of truth. Extract <main> contents only. Never use AI-rewritten content when compiled source exists.",
+  "github_secret_name": "GitHub secret MUST be named SSH_PRIVATE_KEY \u2014 workflow references secrets.SSH_PRIVATE_KEY. Any other name causes Permission denied on rsync.",
+  "lfs_checkout": "pages.json tracked via Git LFS \u2014 workflow checkout must include lfs: true or build fails with empty JSON error.",
+  "build_script": "build.py must exist in repo root \u2014 GitHub Actions runner calls python3 build.py directly.",
+  "yaml_multiline": "Never embed multiline Python in deploy.yml \u2014 always use a separate build.py script to avoid YAML syntax errors.",
+  "homepage_slug": "Engine builds index slug as build/index/index.html \u2014 must be manually copied to build/index.html after every build: cp build/index/index.html build/index.html",
+  "base_html_jekyll_tags": "base.html may contain Jekyll tags (site.baseurl, site.title, prepend filters, block/endblock) the engine cannot process \u2014 audit base.html before first build and replace all with plain values or {{ content }}",
+  "missing_js_assets": "cookieconsent.umd.js and cookie-init.js may be referenced in base.html but not exist in assets/js/ \u2014 check and remove missing JS references from base.html",
+  "head_styles_in_jekyll": "Some Jekyll pages store CSS in <head> <style> blocks \u2014 extractor must pull <style> block from <head> AND prepend to body content. Affects pages using custom layouts without <main> tags.",
+  "404_slugs_csv": "Table.csv in data/ contains 1000 GSC 404 URLs. 100 redirected to singular service-location equivalents. 900 marked 410 Gone. Nginx rules in vhost_nginx.conf.",
+  "session_scripts_missing": "RESOLVED 2026-07-21 \u2014 session_start.sh and session_end.sh were referenced in workflow instructions but never existed on disk. All workflow references now point only to snapshot.sh and restore.sh (both confirmed real and working). Do not reintroduce session_start.sh/session_end.sh references unless those scripts are actually created."
+}

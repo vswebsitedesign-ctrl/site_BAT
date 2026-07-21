@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-import json, os, shutil, sys
+import json, os, shutil, sys, hashlib
 
 SERVICE_WORDS = ['house','clearance','rubbish','removal','bereavement','probate','hoarder','loft','garage','shed','office','attic','care','commercial','waste','scrap','black','bag','collection','same','day','we','buy','old','caravan','guest','garden','building','site','man','van','removals','move','clean','motorbike','motorhome','insulation']
 
@@ -71,9 +71,17 @@ def make_uk_schema(slug, service, location, canonical):
     )
 
 
+def stable_idx(slug, mod=8):
+    # Deterministic replacement for Python built-in hash(), which is randomized per-process
+    # by default (PYTHONHASHSEED) and therefore produced a different template choice on every
+    # single build run. See known_issues.build_hash_randomization_nondeterminism, fixed 2026-07-21.
+    return int(hashlib.md5(slug.encode()).hexdigest(), 16) % mod
+
+
 def make_uk_template(slug, service, location):
-    idx = hash(slug) % 8
+    idx = stable_idx(slug)
     h1 = H1_PATTERNS[idx].replace('{service}', service).replace('{location}', location)
+    service_lower = service.lower()
     return f"""<div class="bat-full-width-hero">
   <div class="bat-overlay"></div>
   <div class="bat-hero-content">
@@ -151,11 +159,89 @@ def make_uk_template(slug, service, location):
   </div>
 </section>
 
+<div class="faq-testimonial-container">
+  <div class="faq-column">
+    <h2 class="bat-text-center bat-color-navy bat-mb-30 bat-fs-26">FAQ – Buildings and Trust 🏡</h2>
+    <div class="faq-item">
+      <span class="bat-faq-q">1️⃣ Do you cover {location} for {service_lower}?</span>
+      <p class="bat-faq-a">Yes, Sharna and the team regularly carry out {service_lower} across {location} and the surrounding area, for both domestic and commercial customers.</p>
+    </div>
+    <div class="faq-item">
+      <span class="bat-faq-q">2️⃣ Are you a licensed waste carrier?</span>
+      <p class="bat-faq-a">Yes, we are fully licensed by the Environment Agency and dispose of everything responsibly and ethically.</p>
+    </div>
+    <div class="faq-item">
+      <span class="bat-faq-q">3️⃣ How quickly can you help?</span>
+      <p class="bat-faq-a">We offer same-day and next-day availability in {location} wherever possible, with GPS-tracked vans so you're never left waiting in.</p>
+    </div>
+    <div class="faq-item">
+      <span class="bat-faq-q">4️⃣ How much will it cost?</span>
+      <p class="bat-faq-a">We believe in value for money — we'll always work hard to get you the best possible quote. Every job in {location} is different, so we tailor each quote to your needs.</p>
+    </div>
+    <div class="faq-item">
+      <span class="bat-faq-q">5️⃣ What happens to the items you remove?</span>
+      <p class="bat-faq-a">We always try to reuse, donate or recycle wherever possible, keeping waste out of landfill.</p>
+    </div>
+  </div>
+  <div class="testimonial-column">
+    <h2 class="bat-text-center bat-color-navy bat-mb-30 bat-fs-26">Why Choose Buildings and Trust in {location} 🏆</h2>
+    <div class="why-choose-card">
+      <div class="bat-testi-check">✅ Local &amp; Experienced</div>
+      <div class="bat-faq-a">Sharna and the team bring over 15 years of experience to every {service_lower} job in {location}.</div>
+    </div>
+    <div class="why-choose-card">
+      <div class="bat-testi-check">🔹 Fully Licensed &amp; Insured</div>
+      <div class="bat-faq-a">Every job in {location} is carried out by a fully licensed, insured and Environment Agency registered team.</div>
+    </div>
+    <div class="why-choose-card">
+      <div class="bat-testi-check">♻️ Eco-Friendly by Default</div>
+      <div class="bat-faq-a">We prioritise recycling and responsible disposal on every job across {location}.</div>
+    </div>
+    <div class="why-choose-card">
+      <div class="bat-testi-check">💷 Honest, Value-Focused Quotes</div>
+      <div class="bat-faq-a">We believe in value for money — clear quotes with no hidden charges, tailored to your {service_lower} in {location}.</div>
+    </div>
+    <div class="why-choose-card">
+      <div class="bat-testi-check">⚡ Fast &amp; Flexible</div>
+      <div class="bat-faq-a">Same-day and next-day slots available in {location}, fitted around you.</div>
+    </div>
+  </div>
+</div>
+
 <div class="cta-banner">
   <div class="cta-title">&#128222; Free {service} Quote in {location}</div>
   <div class="cta-buttons">
     <a href="tel:07859730296" class="cta-button">Call Sharna: 07859 730296</a>
     <a href="/contact-us" class="cta-button">Send a Message</a>
+  </div>
+</div>
+
+<div class="bat-services-list">
+  <h2 class="bat-services-h2">Trusted {service} in {location}</h2>
+  <div class="bat-services-intro">
+    <p><strong>Local &amp; Licensed</strong></p>
+    <p>Sharna and Buildings and Trust provide a dependable {service_lower} service across {location}.</p>
+    <p>We are fully licensed waste carriers offering free, no-obligation quotes for every job.</p>
+    <p>From single items to full-scale jobs, we handle {service_lower} of every size in {location}.</p>
+    <p><strong>Value You Can Trust</strong></p>
+    <p>We believe in value for money — we'll always work hard to get you the best possible quote.</p>
+    <p>We prioritise recycling and responsible disposal wherever we can, locally in {location}.</p>
+  </div>
+  <div class="bat-services-grid">
+    <div class="bat-service-category">
+      <h3>Fast &amp; Flexible Collection</h3>
+      <div class="bat-service-item">Sharna offers flexible scheduling for {service_lower} in {location}, fitted around your day.</div>
+      <h3>Trusted &amp; Registered</h3>
+      <div class="bat-service-item">Buildings and Trust are fully registered waste carriers, giving you complete peace of mind in {location}.</div>
+      <div class="bat-service-item">A trusted, experienced team with a strong local reputation for {service_lower} in {location}.</div>
+    </div>
+    <div class="bat-service-category">
+      <h3>Responsible Disposal</h3>
+      <div class="bat-service-item">We follow sustainable practices to make sure waste from {location} is sorted and recycled ethically.</div>
+      <div class="bat-service-item">Every job helps reduce what goes to landfill from {location}.</div>
+      <h3>Buildings and Trust {location}</h3>
+      <div class="bat-service-item">Professional {service_lower}, delivered locally with care.</div>
+    </div>
   </div>
 </div>"""
 
@@ -177,11 +263,20 @@ def build():
         slug = page['slug']
         service, location = slug_to_service_location(slug)
         canonical = 'https://buildingsandtrust.co.uk/' + slug + '/'
-        idx = hash(slug) % 8
+        idx = stable_idx(slug)
 
         # CONTENT
         content = page.get('body_content', '')
-        is_uk_page = not (content or '').strip()
+        # Division is now explicit data (added 2026-07-21), not inferred from body_content
+        # emptiness. Fallback to the old heuristic only if division is somehow missing, so a
+        # future page added without the field doesn't crash the build -- but this should not
+        # happen for any page going forward; data/pages.json must always set division.
+        division = page.get('division')
+        if division is None:
+            print(f'WARNING: page {slug!r} has no division field -- falling back to body_content heuristic')
+            is_uk_page = not (content or '').strip()
+        else:
+            is_uk_page = (division == 'uk')
         if is_uk_page:
             content = make_uk_template(slug, service, location)
 
@@ -237,12 +332,50 @@ def build():
         f.write(sitemap)
 
     # Copy homepage to root index.html
-    home_path = os.path.join('build', 'home', 'index.html')
+    home_path = os.path.join('build', 'index', 'index.html')
     if os.path.exists(home_path):
         shutil.copy(home_path, os.path.join('build', 'index.html'))
     if os.path.exists('assets'):
         shutil.copytree('assets', 'build/assets', dirs_exist_ok=True)
-    print(f"Built {len(pages)} pages")
+    # Ensure contact form handler is always reachable at /send.php regardless of where it lives in source
+    send_php_src = os.path.join('assets', 'send.php') if os.path.exists(os.path.join('assets', 'send.php')) else 'send.php'
+    if os.path.exists(send_php_src):
+        shutil.copy(send_php_src, os.path.join('build', 'send.php'))
+    else:
+        print('WARNING: send.php not found in assets/ or project root — contact form will not work')
+    send_popup_php_src = os.path.join('assets', 'send-popup.php') if os.path.exists(os.path.join('assets', 'send-popup.php')) else 'send-popup.php'
+    if os.path.exists(send_popup_php_src):
+        shutil.copy(send_popup_php_src, os.path.join('build', 'send-popup.php'))
+    else:
+        print('WARNING: send-popup.php not found in assets/ or project root — popup form will not work')
+
+    # --- Build-time verification: fail loudly instead of silently succeeding ---
+    # This replaces the previous behavior where a missing critical file only printed
+    # a warning but still let the build report success (exit 0). See changelog 2026-07-21.
+    required_files = {
+        'build/send.php': 'Contact form handler',
+        'build/index.html': 'Homepage',
+        'build/robots.txt': 'Robots.txt',
+        'build/sitemap.xml': 'Sitemap',
+    }
+    build_failed = False
+    print("\n--- Build verification ---")
+    for path, label in required_files.items():
+        if not os.path.exists(path):
+            print(f"❌ MISSING: {label} not found at {path}")
+            build_failed = True
+        elif os.path.getsize(path) == 0:
+            print(f"❌ EMPTY: {label} exists at {path} but is 0 bytes")
+            build_failed = True
+        else:
+            print(f"✅ OK: {label} present at {path} ({os.path.getsize(path)} bytes)")
+
+    if build_failed:
+        print("\n❌ BUILD FAILED VERIFICATION — one or more critical files missing or empty.")
+        print("Deploy must NOT proceed until this is fixed. See known_issues in Master_Report.json.")
+        sys.exit(1)
+
+    print(f"\n✅ Built {len(pages)} pages — all critical files verified present and non-empty")
 
 if __name__ == '__main__':
     build()

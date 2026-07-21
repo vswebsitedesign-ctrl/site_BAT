@@ -1,0 +1,174 @@
+[
+  {
+    "date": "2026-05-25",
+    "change": "Master Report auto-generated from real site structure by omni-builder AI assistant."
+  },
+  {
+    "date": "2026-05-25",
+    "change": "Engine fix: if __name__ == __main__ guard added to build_sites.py \u2014 import no longer triggers full loop across all sites."
+  },
+  {
+    "date": "2026-05-25",
+    "change": "base.html must use {{ content }} only \u2014 engine does plain string replace, no Jinja2, no {% %} tags supported."
+  },
+  {
+    "date": "2026-05-25",
+    "change": "Global components (header, cookie banner) must be inlined directly into theme/base.html \u2014 engine has no include system."
+  },
+  {
+    "date": "2026-05-25",
+    "change": "assets/ directory must be copied into build/ or served from project root \u2014 build/ directory only contains generated HTML."
+  },
+  {
+    "date": "2026-05-25",
+    "change": "Never append serve command to build command \u2014 if server already running on port 8000 it will throw OSError. Build only, then refresh browser."
+  },
+  {
+    "date": "2026-05-25",
+    "change": "Images migrated from Jekyll project to assets/images (4 files)."
+  },
+  {
+    "date": "2026-05-25",
+    "change": "Migration confirmed complete. Jekyll _data files not required \u2014 all content rendered into pages.json. Images migrated."
+  },
+  {
+    "date": "2026-05-25",
+    "change": "Cookie banner inlined into base.html for all sites. Jekyll {% include %} tags removed and replaced with working inlined HTML."
+  },
+  {
+    "date": "2026-05-25",
+    "change": "CSS files migrated from Jekyll _site compiled output into assets/css/. Assets copied into build/. assets/ must be re-copied into build/ after every build."
+  },
+  {
+    "date": "2026-05-25",
+    "change": "Added known_issue: body_content must never contain full standalone HTML \u2014 double header/footer risk on all sites migrated from Jekyll."
+  },
+  {
+    "date": "2026-05-25",
+    "change": "Added known_issue: use Jekyll _site compiled output as body_content source of truth where available. Extract <main> only."
+  },
+  {
+    "date": "2026-05-25",
+    "change": "GitHub Actions deployment confirmed working for site_HCR. SSH key stored as SSH_PRIVATE_KEY secret. LFS enabled for pages.json. build.py in repo root. Workflow at .github/workflows/deploy.yml. Push to main triggers full build and rsync deploy to Plesk."
+  },
+  {
+    "date": "2026-05-25",
+    "change": "Global lessons-learned patch applied: known_issues updated with homepage_slug, base_html_jekyll_tags, missing_js_assets and other engine/deploy rules. content_status and deployment_workflow stubs added where missing."
+  },
+  {
+    "date": "2026-05-25",
+    "change": "Live crawl from https://buildingsandtrust.co.uk: 0 pages added, 20 updated. Top-level, service hubs, one example per service-location."
+  },
+  {
+    "date": "2026-05-25",
+    "change": "Global known_issues patch: head_styles_in_jekyll lesson added to all Master Reports."
+  },
+  {
+    "date": "2026-05-25",
+    "change": "Stripped Jekyll tags from theme/base.html (site.baseurl, site.url, include, block, if, for, etc.)."
+  },
+  {
+    "date": "2026-05-25",
+    "change": "Bulk build: SUCCESS. All 27 sites processed."
+  },
+  {
+    "date": "2026-05-25",
+    "change": "Fixed base.html: removed Jekyll tags, ensured { content } inside <main>."
+  },
+  {
+    "date": "2026-05-25",
+    "change": "Full bulk build of all 27 sites completed successfully. All sites now have a base.html template and build without errors."
+  },
+  {
+    "date": "2026-05-25",
+    "change": "Added GitHub Actions build-only workflow (no rsync). Created build.py and .gitattributes."
+  },
+  {
+    "date": "2026-05-25",
+    "change": "Initialized git repository locally, added .gitignore, created initial commit."
+  },
+  {
+    "date": "2026-05-25",
+    "change": "Pushed to GitHub: remote set to https://github.com/vswebsitedesign-ctrl/site_BAT.git. GitHub Actions will now build on push."
+  },
+  {
+    "date": "2026-06-01",
+    "change": "project_metadata.email updated to darren@buildingsandtrust.co.uk for contact form."
+  },
+  {
+    "date": "2026-06-01",
+    "change": "send.php addAddress updated to darren@buildingsandtrust.co.uk \u2014 contact form submissions now route to new email."
+  },
+  {
+    "date": "2026-06-01",
+    "change": "Deployment method confirmed: manual rsync only using ssh -i ~/.ssh/github_actions_bat to root@217.154.33.12. GitHub Actions workflow builds only \u2014 no rsync to Plesk. deploy.sh updated to use correct SSH key."
+  },
+  {
+    "date": "2026-06-01",
+    "change": "robots.txt and sitemap.xml created and deployed to live server. Sitemap contains 47,284 URLs generated from data/pages.json. robots.txt points to https://buildingsandtrust.co.uk/sitemap.xml."
+  },
+  {
+    "date": "2026-06-01",
+    "change": "404 fix: 100 x 301 redirects (plural slug -> singular service-location page) and 900 x 410 Gone responses added to vhost_nginx.conf. Backup saved as vhost_nginx.conf.bak.2026-06-01."
+  },
+  {
+    "date": "2026-06-01",
+    "change": "404 fix batch 2: GSC API used to pull 27,438 URLs. 3,702 missing from pages.json. 178 x 301 redirects and 3,524 x 410 Gone added to vhost_nginx.conf. Backup saved as vhost_nginx.conf.bak.2026-06-01c."
+  },
+  {
+    "date": "2026-06-03",
+    "change": "AI safety governance block added: AI_READ_THIS_FIRST, session_workflow, recovery, ai_incident_log. Adapted from site_cic and site_tales proven session safety patterns. All rules, mandatory workflows, deploy commands, and emergency rollback procedures now documented as first-read entry point for every AI session."
+  },
+  {
+    "date": "2026-06-11",
+    "change": "Best practices appended from site_tales master report: stronger commit-to-main rule, explicit build/ sed ban, session_start/end workflow, AI parsing requirement."
+  },
+  {
+    "date": "2026-06-11",
+    "change": "Full GSC audit completed. pages.json audited: 47,284 total pages, 12,418 with body content (Cornwall/Devon only), 34,866 empty shells built by build.py template, only 1 meta description exists. GSC exports: 35,227 queries, 56,719 pages. Cost guide title and meta fixed. 393 gaz-the-handyman 410s confirmed live in nginx. GSC CSV files moved to project root."
+  },
+  {
+    "date": "2026-06-11",
+    "change": "Pending tasks added to Master Report from GSC audit session. 7 tasks logged with priority and status."
+  },
+  {
+    "date": "2026-06-11",
+    "change": "Added page_templates, server config, nginx 410 status, and GSC setup details to Master Report. All findings from 2026-06-11 audit session now fully documented."
+  },
+  {
+    "date": "2026-06-11",
+    "change": "Session 2 complete. base.html and build.py updated to inject unique title/meta/canonical/og:url per page. Dynamic title and meta generation added to build.py covering all 47,287 pages. 34,866 UK location titles bulk updated to strong CTR pattern. probate-clearance and bereavement-clearance main service pages built and added to pages.json. Manchester/Nottingham/London/Redhill metas fixed. Homepage pulled from live server and added to pages.json as slug home. snapshot.sh and restore.sh created. 5 snapshots taken. Deploy pending task 8 (homepage copy step in build.py)."
+  },
+  {
+    "date": "2026-06-11",
+    "change": "Session 3 complete. Homepage copy step added to build.py and verified. 26 service hub pages added to pages.json and verified locally. All service hub pages rendering correctly. Task 9 renamed task 11 \u2014 deploy pending. Total pages now 47,313. Snapshot taken: all-26-service-hub-pages-added."
+  },
+  {
+    "date": "2026-06-11",
+    "change": "Session 4 complete. Jekyll front matter removed from base.html. Nav CSS fixed desktop-first. Hero mobile layout fixed \u2014 image full width, h1/text/buttons in navy block below. Cookie consent badge confirmed working. robots.txt, sitemap.xml live and verified. Full deploy complete. 47,313 pages live."
+  },
+  {
+    "date": "2026-06-11",
+    "change": "Sitemap submitted to GSC with 47,313 URLs. Task 18 added \u2014 check GSC at 48hrs (2026-06-13) and again at 2 weeks (2026-06-25). AI to prompt user to pull fresh GSC data at next session after 2026-06-25."
+  },
+  {
+    "id": 19,
+    "task": "Image SEO implemented",
+    "detail": "og:image and twitter:image wired via {{ image }} token in base.html. max-image-preview:large added. house-move-placeholder.jpg created at 1200x675 from buildings-and-trust.webp. image field added to all 47,313 pages in pages.json. Homepage slug fixed from home to index.",
+    "status": "COMPLETE",
+    "completed": "2026-06-22",
+    "priority": "HIGH"
+  },
+  {
+    "id": 20,
+    "task": "Fixed 410 errors on all service hub pages",
+    "detail": "Removed erroneous 410 nginx entries for all service hub slugs. house-clearance, probate-clearance, bereavement-clearance, garage-clearance, shed-clearance, hoarder-clearance, office-clearance, rubbish-removal, man-with-van, house-move, garden-rubbish-removal, attic-loft-clearances all confirmed returning 200.",
+    "status": "COMPLETE",
+    "completed": "2026-06-22",
+    "priority": "HIGH"
+  },
+  {
+    "date": "2026-06-30",
+    "change": "TWO LIVE BUGS FOUND AND FIXED during multi-site send.php audit. (1) send.php was only copied to build/assets/send.php via the wholesale assets/ copy step, not to build/send.php where the live form actually needs it \u2014 build.py patched to explicitly copy send.php (from assets/ or project root) to build/send.php on every build. Verified live: POST to https://buildingsandtrust.co.uk/send.php now returns HTTP 400 (correct validation response for empty fields, not 404). (2) Homepage was returning HTTP 403 \u2014 root cause was build.py homepage-copy logic still referencing the old build/home/index.html path, but the homepage slug was renamed to index per earlier changelog entry (image_seo task 19) without updating this build.py reference. Patched build.py to use build/index/index.html. Verified live: homepage now returns HTTP 200. Both fixes deployed via rsync to root@217.154.33.12, confirmed live."
+  }
+]

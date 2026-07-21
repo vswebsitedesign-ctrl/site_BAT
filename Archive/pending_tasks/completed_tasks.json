@@ -1,0 +1,180 @@
+[
+  {
+    "id": 1,
+    "task": "Export GSC search queries and page URLs",
+    "detail": "Exported 35,227 search queries and 56,719 page URLs from Google Search Console. Moved GSC data into project root for proper isolation. Fixed API key path in both export scripts.",
+    "status": "COMPLETE",
+    "completed": "2026-06-11",
+    "priority": "HIGH"
+  },
+  {
+    "id": 2,
+    "task": "Build system overhaul \u2014 unique meta per page",
+    "detail": "Every page now gets unique title, meta description, canonical URL and og:url. 47,313 pages have auto-generated unique meta descriptions.",
+    "status": "COMPLETE",
+    "completed": "2026-06-11",
+    "priority": "HIGH"
+  },
+  {
+    "id": 3,
+    "task": "robots.txt and sitemap.xml auto-generation",
+    "detail": "robots.txt and sitemap.xml now auto-generate on every build with all 47,313 URLs. Confirmed live on buildingsandtrust.co.uk/robots.txt",
+    "status": "COMPLETE",
+    "completed": "2026-06-11",
+    "priority": "HIGH"
+  },
+  {
+    "id": 4,
+    "task": "snapshot.sh and restore.sh created",
+    "detail": "Instant rollback available via snapshot.sh and restore.sh in project root.",
+    "status": "COMPLETE",
+    "completed": "2026-06-11",
+    "priority": "HIGH"
+  },
+  {
+    "id": 5,
+    "task": "34,866 UK location page titles updated",
+    "detail": "All 34,866 UK location page titles updated to click-worthy format e.g. House Clearance Aberdeen | Free Quotes | Licensed and Insured.",
+    "status": "COMPLETE",
+    "completed": "2026-06-11",
+    "priority": "HIGH"
+  },
+  {
+    "id": 6,
+    "task": "26 service hub pages created",
+    "detail": "All 26 main service hub pages created: house clearance, probate, bereavement, rubbish removal, hoarder clearance, garage clearance, shed clearance, attic/loft, loft insulation, office clearance, garden rubbish, building site waste, commercial waste, black bag, waste item pickup, house move, removals, man with van, guest house clearance, house clean, care clearance, scrap car, scrap motorbike, scrap motorhome, caravan disposal, old caravan, we buy houses, same day services.",
+    "status": "COMPLETE",
+    "completed": "2026-06-11",
+    "priority": "HIGH"
+  },
+  {
+    "id": 7,
+    "task": "Probate and bereavement UK service pages built",
+    "detail": "Targeting 14,000+ zero-click impressions. Both pages verified in build and deployed.",
+    "status": "COMPLETE",
+    "completed": "2026-06-11",
+    "priority": "HIGH"
+  },
+  {
+    "id": 8,
+    "task": "Fixed meta descriptions for top location pages",
+    "detail": "Fixed meta descriptions for Manchester, Nottingham, London, Redhill. Fixed title and meta on house clearance cost guide page.",
+    "status": "COMPLETE",
+    "completed": "2026-06-11",
+    "priority": "HIGH"
+  },
+  {
+    "id": 9,
+    "task": "Confirmed 393 dead Gaz the Handyman pages returning 410 Gone",
+    "detail": "393 dead pages confirmed returning 410 Gone \u2014 correctly excluded from index.",
+    "status": "COMPLETE",
+    "completed": "2026-06-11",
+    "priority": "MEDIUM"
+  },
+  {
+    "id": 10,
+    "task": "Homepage brought into build pipeline",
+    "detail": "Homepage no longer a standalone file on server. build.py copies build/home/index.html to build/index.html on every build.",
+    "status": "COMPLETE",
+    "completed": "2026-06-11",
+    "priority": "HIGH"
+  },
+  {
+    "id": 11,
+    "task": "send.php contact form created",
+    "detail": "Contact form send.php created in assets/ and deployed. Email delivery confirmed working. Redirects to /thank-you/ on success.",
+    "status": "COMPLETE",
+    "completed": "2026-06-11",
+    "priority": "HIGH"
+  },
+  {
+    "id": 12,
+    "task": "Cookie consent badge added",
+    "detail": "Cookie consent badge added with Accept/Decline buttons and localStorage persistence. Appears bottom-left after 1.5s delay.",
+    "status": "COMPLETE",
+    "completed": "2026-06-11",
+    "priority": "MEDIUM"
+  },
+  {
+    "id": 13,
+    "task": "Sticky notification bar added",
+    "detail": "Sticky bar added with GPS tracking message and Sharna phone number 07859 730296. Closeable via X button.",
+    "status": "COMPLETE",
+    "completed": "2026-06-11",
+    "priority": "MEDIUM"
+  },
+  {
+    "id": 14,
+    "task": "Jekyll front matter removed from base.html",
+    "detail": "Two --- lines at top of base.html removed. Was causing all 47,313 pages to render with --- before DOCTYPE.",
+    "status": "COMPLETE",
+    "completed": "2026-06-11",
+    "priority": "HIGH"
+  },
+  {
+    "id": 15,
+    "task": "Desktop navigation header fixed",
+    "detail": "Nav CSS rewritten desktop-first. #bat-nav display:flex globally, .bat-hamburger display:none globally, only overridden inside max-width:768px media query.",
+    "status": "COMPLETE",
+    "completed": "2026-06-11",
+    "priority": "HIGH"
+  },
+  {
+    "id": 16,
+    "task": "Homepage hero mobile layout fixed",
+    "detail": "Mobile hero now shows image full width at 260px height with no overlay. h1, paragraph and CTA buttons appear in navy block below the image. Desktop layout unchanged.",
+    "status": "COMPLETE",
+    "completed": "2026-06-11",
+    "priority": "HIGH"
+  },
+  {
+    "id": 17,
+    "task": "Full deploy to live server",
+    "detail": "All 47,313 pages deployed via rsync to root@217.154.33.12. robots.txt confirmed live. sitemap.xml live. All service hub pages live.",
+    "status": "COMPLETE",
+    "completed": "2026-06-11",
+    "priority": "HIGH"
+  },
+  {
+    "id": 19,
+    "task": "UK service location pages body_content fixed",
+    "detail": "34,866 UK service location pages were rendering with empty body_content. Root cause: build.py had no dynamic template generation despite master report documenting it as intended. Fixed by adding make_uk_template() function to build.py. Pages now render with full hero, badges, gallery, service cards and CTA sections generated dynamically from slug at build time.",
+    "status": "COMPLETE",
+    "completed": "2026-06-28",
+    "priority": "HIGH"
+  },
+  {
+    "id": 20,
+    "task": "Rotating H1, title and meta description patterns added for UK pages",
+    "detail": "8 distinct H1 patterns, 8 title patterns and 8 meta description patterns added to build.py for all 34,866 UK service location pages. Rotation is hash-based on slug - deterministic across every build. Each pattern includes service name and location name for uniqueness. All patterns include a local signal. Cornwall/Devon pages with full body_content are unaffected.",
+    "status": "COMPLETE",
+    "completed": "2026-06-28",
+    "priority": "HIGH"
+  },
+  {
+    "id": 21,
+    "task": "Schema markup added sitewide and per UK service location page",
+    "detail": "LocalBusiness schema (address: 5 Goole Road, Swinefleet, Goole DN14 8AR, areaServed: United Kingdom) and WebSite schema added to base.html sitewide. BreadcrumbList and Service schema injected per UK page via {{ page_schema }} token in base.html, generated dynamically by make_uk_schema() in build.py. Cornwall/Devon pages get sitewide schema only. Validated clean in Google Rich Results Test: Breadcrumbs, Local businesses, Organization - all 3 valid, zero errors, zero warnings.",
+    "status": "COMPLETE",
+    "completed": "2026-06-28",
+    "priority": "HIGH"
+  },
+  {
+    "id": 22,
+    "task": "Diagnose 5 service hub pages returning 404 with no nginx rule",
+    "detail": "loft-insulation, black-bag, scrap-car, old-caravan, house-clean all return 404 live but have no matching 410 rule in vhost_nginx.conf, unlike the 9 fixed in the 2026-07-03 changelog entry. Root cause not yet known -- needs checking against data/pages.json to see if these slugs exist in the source of truth, and whether they were ever built.",
+    "status": "COMPLETE",
+    "priority": "HIGH",
+    "completed": "2026-07-03",
+    "resolution": "Corrected: same stale-410 root cause as the first 9 hub pages, not a missing-page issue. Fixed by removing 10 exact-match nginx 410 rules for old-caravan-collection, black-bag-collection, house-clean, loft-insulation-cleared, scrap-car-collection. All confirmed live 200."
+  },
+  {
+    "id": 23,
+    "task": "PHASE 4: Implement permanent safety structures for send.php/deploy/division-separation risks",
+    "detail": "Following audit reference/audit_2026-07-21.md, build: (1) [DONE 2026-07-21] build-time verification in build.py that fails loudly if send.php, homepage, robots.txt, or sitemap.xml are missing or empty after build \u2014 implemented via required_files check + sys.exit(1) at end of build(), replacing prior silent-warning-only behavior; (2) [DONE 2026-07-21] automated post-deploy live HTTP verification (homepage 200, send.php/send-popup.php correct response via manual_form_test.sh, robots.txt/sitemap.xml fetchable) \u2014 implemented in deploy.sh Stage 3, exits non-zero on any failure; (3) [DONE 2026-07-21] explicit division field (\"uk\"/\"southwest\") added to all 47,313 records in data/pages.json, derived from and verified against the existing body_content heuristic with 0 mismatches. build.py updated to read page[\"division\"] directly instead of inferring, with a fallback+warning if ever missing. Confirmed safe via local rebuild; (4) [DONE 2026-07-21] verified via diff of data/pages.json against snapshots/20260611_073549_uk-titles-updated-34866-pages: 0 of 47,286 matched pages flipped UK/SW classification; 12,418 SW pages had body_content changes, but all fall into two consistent, explainable patterns (12,390 small pricing-language edits, 28 larger pricing-guide rewrites) rather than random/scattered changes \u2014 consistent with deliberate later content edits, not bulk-filter corruption. No evidence the title update touched South West pages; (5) [DONE 2026-07-21] new permanent rule added to ai_governance.rules requiring both build-time and post-deploy checks to pass and be shown to the human before any deploy is declared complete.",
+    "status": "DONE",
+    "priority": "HIGH",
+    "added": "2026-07-21",
+    "completed": "2026-07-21"
+  }
+]

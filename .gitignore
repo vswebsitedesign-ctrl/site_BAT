@@ -12,3 +12,13 @@ Thumbs.db
 
 # Secrets (if any)
 *.env
+
+# GSC service account credentials — never commit
+gsc_data/key.json
+gsc_data/*.txt
+
+# Backups and snapshots — local only
+*.bak
+*.bak.*
+snapshots/
+gsc_data/*.csv

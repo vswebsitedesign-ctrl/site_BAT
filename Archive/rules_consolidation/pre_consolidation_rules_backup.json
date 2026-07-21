@@ -1,0 +1,58 @@
+{
+  "ai_governance_rules": [
+    "Never guess paths or filenames",
+    "Always prefer minimal fixes",
+    "Never duplicate components",
+    "Preserve single source of truth (data/pages.json)",
+    "Respect all protected directories",
+    "Validate against actual project structure",
+    "Master Report must be appended only - never delete fields",
+    "Single site build command for development, all sites for production only",
+    "Whenever a homepage or other special slug is renamed in pages.json, build.py copy-logic referencing the old slug path must be updated in the same change \u2014 verify by checking build.py for hardcoded slug paths whenever a slug rename is made. See changelog 2026-06-30.",
+    "Before trusting any deploy command copied from this report, verify it does not exclude a file the current task needs to change. A successful rsync exit code only proves the files it was told to sync were synced -- it does not prove the right files were included. When a deploy is reported as \"not working\" despite a clean rsync summary, check the live file directly via SSH (ls -la + grep/diff the actual file on the server) before re-running the same deploy command again."
+  ],
+  "AI_READ_THIS_FIRST_ai_rules": [
+    "NEVER modify files inside ./build/ \u2014 fully overwritten on every build",
+    "NEVER rewrite build.py from scratch \u2014 targeted edits only",
+    "NEVER run sed/perl/regex on build/ files",
+    "NEVER commit directly to main without human confirmation",
+    "NEVER guess paths or filenames \u2014 read Master Report first",
+    "NEVER deploy via GitHub Actions rsync \u2014 manual rsync only",
+    "NEVER leave send.php redirecting anywhere other than /thank-you/",
+    "NEVER delete fields from Master Report \u2014 append only",
+    "ALWAYS read Master Report in full before any bash command",
+    "ALWAYS snapshot before every risky change",
+    "ALWAYS verify changes with a read-back command before building",
+    "ALWAYS batch fact-finding commands into a single paste",
+    "ALWAYS confirm best practice and no guessing with every command",
+    "Content changes go in data/pages.json only",
+    "Layout changes go in theme/base.html only if unavoidable",
+    "build.py must generate robots.txt and sitemap.xml on every build",
+    "Homepage slug rule: after every build copy build/{homepage_slug}/index.html to build/index.html",
+    "NEVER commit directly to main during a session \u2014 no exceptions",
+    "NEVER attempt to run sed, perl, or text replacements on files inside ./build/ \u2014 it is ephemeral and fully overwritten on every build",
+    "AI must parse this entire Master Report completely before generating any bash commands \u2014 no blind regex strings or file overwrites allowed without tracking state dependencies first"
+  ],
+  "AI_READ_THIS_FIRST_mandatory_session_workflow": [
+    "1. READ this Master Report in full before any action",
+    "2. bash snapshot.sh \"label\" \u2014 run before EVERY risky change",
+    "3. bash restore.sh snapshots/X \u2014 instant restore if anything breaks",
+    "4. Commit and push only after local build verified clean"
+  ],
+  "session_workflow_ai_mandatory_rules": [
+    "Read Master Report before any work begins",
+    "Snapshot before every risky change",
+    "Never commit directly to main during a session without human confirmation",
+    "Never make changes without telling the human exactly what will change first",
+    "Never run sed, perl, or regex on build/ files",
+    "Never rewrite build.py \u2014 targeted edits only",
+    "Never guess \u2014 always verify from disk",
+    "Batch all fact-finding into single commands"
+  ],
+  "session_workflow_mandatory_session_workflow": [
+    "1. bash session_start.sh \"label\" \u2014 creates git branch, protects main",
+    "2. bash snapshot.sh \"label\" \u2014 run before EVERY risky change",
+    "3. bash restore.sh snapshots/X \u2014 instant restore if anything breaks",
+    "4. bash session_end.sh \"msg\" \u2014 merge to main, push, clean snapshots"
+  ]
+}

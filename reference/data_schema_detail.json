@@ -1,0 +1,56 @@
+{
+  "pages.json": {
+    "total_pages": 47313,
+    "fields_detected": [
+      "slug",
+      "title",
+      "body_content"
+    ],
+    "service_hub_pages_added": "26 service hub pages added 2026-06-11",
+    "slugs_note": "Removed 47284-item literal slug list from Master Report 2026-06-30 \u2014 this was a stale full-text mirror of data/pages.json, not referenced by build.py, and bloating the report. Source of truth for the actual slug list remains data/pages.json itself; query it directly rather than this report."
+  },
+  "pages_json_audit": {
+    "date": "2026-06-11",
+    "total_pages": 47287,
+    "pages_with_body_content": 12418,
+    "pages_without_body_content": 34866,
+    "pages_with_meta_description": 6,
+    "pages_without_meta_description": 47283,
+    "body_content_note": "Pages with body content are Cornwall and Devon location pages \u2014 body_content field contains full HTML. UK location pages (e.g. house-clearance-leeds) have empty body_content and are built dynamically by build.py from a template.",
+    "meta_description_note": "Only house-clearance-cost-guide has a meta description as of 2026-06-11. All 47,283 remaining pages have no meta \u2014 critical SEO gap.",
+    "top_slug_prefixes": {
+      "house": 7141,
+      "rubbish": 6254,
+      "bereavement": 6254,
+      "hoarder": 6254,
+      "loft": 6254,
+      "probate": 6254,
+      "scrap": 1329,
+      "commercial": 443,
+      "same": 443,
+      "attic": 443,
+      "office": 443,
+      "waste": 443,
+      "guest": 443,
+      "shed": 443,
+      "garage": 443,
+      "care": 443,
+      "caravan": 443,
+      "black": 443
+    },
+    "gsc_data": {
+      "queries_csv": "data/gsc_queries.csv",
+      "pages_csv": "data/gsc_pages.csv",
+      "key_path": "key.json",
+      "total_queries": 35227,
+      "total_pages": 56719,
+      "export_scripts": {
+        "queries": "~/gsc/export_gsc.py",
+        "pages": "~/gsc/export_gsc_pages.py"
+      }
+    },
+    "homepage_added": "slug: home added 2026-06-11",
+    "meta_note_updated": "All 47,287 pages now get unique meta \u2014 manual entries take priority, dynamic generation fills the rest via build.py",
+    "title_note_updated": "All 47,287 pages now get unique titles \u2014 manual entries take priority, 34,866 UK location pages bulk updated to strong pattern"
+  }
+}
