@@ -341,5 +341,23 @@
     "audit_2026-07-21": "reference/audit_2026-07-21.md \u2014 Fact-finding audit of modular architecture practice, send.php/robots.txt/sitemap.xml deployment integrity, and South West vs UK division separation. Found 4 unresolved risks, ranked by severity, including conditional build copy steps that can silently succeed with missing critical files, and division separation that is inferred (not enforced) via body_content emptiness. Phase 4 fix work is PENDING \u2014 see pending_tasks id 23.",
     "session_detail_2026-07-21": "reference/session_detail_2026-07-21.md \u2014 Full detail on manual_form_test.sh fix, build.py hash-randomization fix, and completed PHASE 4 task 23, condensed out of the main report on 2026-07-21 per bloat-prevention rule.",
     "changelog_full_entries_2026-07-21": "reference/changelog_full_entries_2026-07-21.md \u2014 Full original text of changelog entries that exceeded the 200-char bloat-prevention limit, condensed inline on 2026-07-21."
+  },
+  "git_workflow": {
+    "remote": "https://github.com/vswebsitedesign-ctrl/site_BAT.git",
+    "branch": "main",
+    "rule": "NEVER commit/push to main without explicit human confirmation \u2014 no exceptions (see ai_governance.rules).",
+    "steps": [
+      "1. git status \u2014 see full picture of modified/untracked before touching anything",
+      "2. Check gsc_data/ for key.json and any credential-like files \u2014 NEVER let these get staged; verify .gitignore covers them",
+      "3. ls -la *.bak* data/*.bak* theme/*.bak* \u2014 large .bak files (pages.json backups have hit 150MB+) must be .gitignore-excluded, never staged",
+      "4. git diff <file> on anything modified that this session did NOT knowingly change \u2014 never blind-commit unexplained diffs",
+      "5. git add <explicit file list> \u2014 never git add -A or git add .",
+      "6. git status again to confirm staged list is exactly the intended scope",
+      "7. Get explicit human confirmation to commit to main",
+      "8. git commit -m \"...\" with a descriptive multi-line message",
+      "9. git push origin main",
+      "10. Independent read-back: compare git log -1 --format=\"%H\" against git ls-remote origin main \u2014 hashes must match before calling it done"
+    ],
+    "gitignore_notes": "Currently excludes: build/, dist_staging/, __pycache__/, *.pyc, .DS_Store, Thumbs.db, *.env, gsc_data/key.json, gsc_data/*.txt, gsc_data/*.csv, *.bak, *.bak.*, snapshots/. NOTE: *.bak only matches literal .bak suffix, not .bak2/.bak3 etc \u2014 check for those manually each time."
   }
 }
